@@ -1,0 +1,3469 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/felixge/node-measured">measured (v1.1.0)</a>
+</h1>
+<h4>This is an alternative port of Coda Hale's metrics library.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured">module measured</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap">
+            function <span class="apidocSignatureSpan">measured.</span>BinaryHeap
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Collection">
+            function <span class="apidocSignatureSpan">measured.</span>Collection
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Counter">
+            function <span class="apidocSignatureSpan">measured.</span>Counter
+            <span class="apidocSignatureSpan">(properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyDecayingSample">
+            function <span class="apidocSignatureSpan">measured.</span>ExponentiallyDecayingSample
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyMovingWeightedAverage">
+            function <span class="apidocSignatureSpan">measured.</span>ExponentiallyMovingWeightedAverage
+            <span class="apidocSignatureSpan">(timePeriod, tickInterval)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Gauge">
+            function <span class="apidocSignatureSpan">measured.</span>Gauge
+            <span class="apidocSignatureSpan">(readFn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Histogram">
+            function <span class="apidocSignatureSpan">measured.</span>Histogram
+            <span class="apidocSignatureSpan">(properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Meter">
+            function <span class="apidocSignatureSpan">measured.</span>Meter
+            <span class="apidocSignatureSpan">(properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Stopwatch">
+            function <span class="apidocSignatureSpan">measured.</span>Stopwatch
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Timer">
+            function <span class="apidocSignatureSpan">measured.</span>Timer
+            <span class="apidocSignatureSpan">(properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.createCollection">
+            function <span class="apidocSignatureSpan">measured.</span>createCollection
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">measured.</span>BinaryHeap.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">measured.</span>Collection.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">measured.</span>Counter.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">measured.</span>ExponentiallyDecayingSample.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">measured.</span>ExponentiallyMovingWeightedAverage.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">measured.</span>Gauge.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">measured.</span>Histogram.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">measured.</span>Meter.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">measured.</span>Stopwatch.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">measured.</span>Timer.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">measured.</span>units</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.BinaryHeap">module measured.BinaryHeap</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap.BinaryHeap">
+            function <span class="apidocSignatureSpan">measured.</span>BinaryHeap
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.BinaryHeap.prototype">module measured.BinaryHeap.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap.prototype._bubble">
+            function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>_bubble
+            <span class="apidocSignatureSpan">(bubbleIndex)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap.prototype._childIndexes">
+            function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>_childIndexes
+            <span class="apidocSignatureSpan">(index)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap.prototype._parentIndex">
+            function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>_parentIndex
+            <span class="apidocSignatureSpan">(index)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap.prototype._score">
+            function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>_score
+            <span class="apidocSignatureSpan">(element)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap.prototype._sink">
+            function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>_sink
+            <span class="apidocSignatureSpan">(sinkIndex)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap.prototype.add">
+            function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>add
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap.prototype.clone">
+            function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>clone
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap.prototype.first">
+            function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>first
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap.prototype.removeFirst">
+            function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>removeFirst
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap.prototype.size">
+            function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>size
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap.prototype.toArray">
+            function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>toArray
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.BinaryHeap.prototype.toSortedArray">
+            function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>toSortedArray
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Collection">module measured.Collection</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Collection.Collection">
+            function <span class="apidocSignatureSpan">measured.</span>Collection
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Collection.prototype">module measured.Collection.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Collection.prototype.counter">
+            function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>counter
+            <span class="apidocSignatureSpan">(name, properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Collection.prototype.end">
+            function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>end
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Collection.prototype.gauge">
+            function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>gauge
+            <span class="apidocSignatureSpan">(name, properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Collection.prototype.histogram">
+            function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>histogram
+            <span class="apidocSignatureSpan">(name, properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Collection.prototype.meter">
+            function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>meter
+            <span class="apidocSignatureSpan">(name, properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Collection.prototype.register">
+            function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>register
+            <span class="apidocSignatureSpan">(name, metric)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Collection.prototype.timer">
+            function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>timer
+            <span class="apidocSignatureSpan">(name, properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Collection.prototype.toJSON">
+            function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Counter">module measured.Counter</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Counter.Counter">
+            function <span class="apidocSignatureSpan">measured.</span>Counter
+            <span class="apidocSignatureSpan">(properties)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Counter.prototype">module measured.Counter.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Counter.prototype.dec">
+            function <span class="apidocSignatureSpan">measured.Counter.prototype.</span>dec
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Counter.prototype.inc">
+            function <span class="apidocSignatureSpan">measured.Counter.prototype.</span>inc
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Counter.prototype.reset">
+            function <span class="apidocSignatureSpan">measured.Counter.prototype.</span>reset
+            <span class="apidocSignatureSpan">(count)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Counter.prototype.toJSON">
+            function <span class="apidocSignatureSpan">measured.Counter.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.ExponentiallyDecayingSample">module measured.ExponentiallyDecayingSample</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyDecayingSample.ExponentiallyDecayingSample">
+            function <span class="apidocSignatureSpan">measured.</span>ExponentiallyDecayingSample
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.</span>ALPHA</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.</span>RESCALE_INTERVAL</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.</span>SIZE</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.ExponentiallyDecayingSample.prototype">module measured.ExponentiallyDecayingSample.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype._priority">
+            function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>_priority
+            <span class="apidocSignatureSpan">(age)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype._random">
+            function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>_random
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype._rescale">
+            function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>_rescale
+            <span class="apidocSignatureSpan">(now)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype._weight">
+            function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>_weight
+            <span class="apidocSignatureSpan">(age)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype.toArray">
+            function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>toArray
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype.toSortedArray">
+            function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>toSortedArray
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype.update">
+            function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>update
+            <span class="apidocSignatureSpan">(value, timestamp)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.ExponentiallyMovingWeightedAverage">module measured.ExponentiallyMovingWeightedAverage</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyMovingWeightedAverage.ExponentiallyMovingWeightedAverage">
+            function <span class="apidocSignatureSpan">measured.</span>ExponentiallyMovingWeightedAverage
+            <span class="apidocSignatureSpan">(timePeriod, tickInterval)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">measured.ExponentiallyMovingWeightedAverage.</span>TICK_INTERVAL</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.ExponentiallyMovingWeightedAverage.prototype">module measured.ExponentiallyMovingWeightedAverage.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyMovingWeightedAverage.prototype.rate">
+            function <span class="apidocSignatureSpan">measured.ExponentiallyMovingWeightedAverage.prototype.</span>rate
+            <span class="apidocSignatureSpan">(timeUnit)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyMovingWeightedAverage.prototype.tick">
+            function <span class="apidocSignatureSpan">measured.ExponentiallyMovingWeightedAverage.prototype.</span>tick
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.ExponentiallyMovingWeightedAverage.prototype.update">
+            function <span class="apidocSignatureSpan">measured.ExponentiallyMovingWeightedAverage.prototype.</span>update
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Gauge">module measured.Gauge</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Gauge.Gauge">
+            function <span class="apidocSignatureSpan">measured.</span>Gauge
+            <span class="apidocSignatureSpan">(readFn)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Gauge.prototype">module measured.Gauge.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Gauge.prototype.toJSON">
+            function <span class="apidocSignatureSpan">measured.Gauge.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Histogram">module measured.Histogram</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Histogram.Histogram">
+            function <span class="apidocSignatureSpan">measured.</span>Histogram
+            <span class="apidocSignatureSpan">(properties)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Histogram.prototype">module measured.Histogram.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Histogram.prototype._calculateMean">
+            function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>_calculateMean
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Histogram.prototype._calculateStddev">
+            function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>_calculateStddev
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Histogram.prototype._calculateVariance">
+            function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>_calculateVariance
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Histogram.prototype._updateMax">
+            function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>_updateMax
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Histogram.prototype._updateMin">
+            function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>_updateMin
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Histogram.prototype._updateVariance">
+            function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>_updateVariance
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Histogram.prototype.hasValues">
+            function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>hasValues
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Histogram.prototype.percentiles">
+            function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>percentiles
+            <span class="apidocSignatureSpan">(percentiles)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Histogram.prototype.reset">
+            function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>reset
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Histogram.prototype.toJSON">
+            function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Histogram.prototype.update">
+            function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>update
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Meter">module measured.Meter</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Meter.Meter">
+            function <span class="apidocSignatureSpan">measured.</span>Meter
+            <span class="apidocSignatureSpan">(properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">measured.Meter.</span>RATE_UNIT</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">measured.Meter.</span>TICK_INTERVAL</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Meter.prototype">module measured.Meter.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Meter.prototype._getTime">
+            function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>_getTime
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Meter.prototype._tick">
+            function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>_tick
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Meter.prototype.currentRate">
+            function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>currentRate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Meter.prototype.end">
+            function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>end
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Meter.prototype.mark">
+            function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>mark
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Meter.prototype.meanRate">
+            function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>meanRate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Meter.prototype.ref">
+            function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>ref
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Meter.prototype.reset">
+            function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>reset
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Meter.prototype.start">
+            function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>start
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Meter.prototype.toJSON">
+            function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Meter.prototype.unref">
+            function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>unref
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Stopwatch">module measured.Stopwatch</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Stopwatch.Stopwatch">
+            function <span class="apidocSignatureSpan">measured.</span>Stopwatch
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Stopwatch.super_">
+            function <span class="apidocSignatureSpan">measured.Stopwatch.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Stopwatch.prototype">module measured.Stopwatch.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Stopwatch.prototype._getTime">
+            function <span class="apidocSignatureSpan">measured.Stopwatch.prototype.</span>_getTime
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Stopwatch.prototype.end">
+            function <span class="apidocSignatureSpan">measured.Stopwatch.prototype.</span>end
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Timer">module measured.Timer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Timer.Timer">
+            function <span class="apidocSignatureSpan">measured.</span>Timer
+            <span class="apidocSignatureSpan">(properties)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.measured.Timer.prototype">module measured.Timer.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Timer.prototype.end">
+            function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>end
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Timer.prototype.ref">
+            function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>ref
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Timer.prototype.reset">
+            function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>reset
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Timer.prototype.start">
+            function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>start
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Timer.prototype.toJSON">
+            function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Timer.prototype.unref">
+            function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>unref
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.measured.Timer.prototype.update">
+            function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>update
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured" id="apidoc.module.measured">module measured</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap" id="apidoc.element.measured.BinaryHeap">
+        function <span class="apidocSignatureSpan">measured.</span>BinaryHeap
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BinaryHeap(options) {
+  options = options || {};
+
+  this._elements = options.elements || [];
+  this._score    = options.score || this._score;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Collection" id="apidoc.element.measured.Collection">
+        function <span class="apidocSignatureSpan">measured.</span>Collection
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Collection(name) {
+  this.name     = name;
+  this._metrics = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Counter" id="apidoc.element.measured.Counter">
+        function <span class="apidocSignatureSpan">measured.</span>Counter
+        <span class="apidocSignatureSpan">(properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Counter(properties) {
+  properties = properties || {};
+
+  this._count = properties.count || 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Counter
+
+Things that increment or decrement. Example:
+
+```js
+var Measured = require('measured')
+var activeUploads = new Measured.<span class="apidocCodeKeywordSpan">Counter</span>();
+http.createServer(function(req, res) {
+  activeUploads.inc();
+  req.on('end', function() {
+    activeUploads.dec();
+  });
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyDecayingSample" id="apidoc.element.measured.ExponentiallyDecayingSample">
+        function <span class="apidocSignatureSpan">measured.</span>ExponentiallyDecayingSample
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ExponentiallyDecayingSample(options) {
+  options = options || {};
+
+  this._elements = new BinaryHeap({
+    score: function (element) {
+      return -element.priority;
+    }
+  });
+
+  this._rescaleInterval = options.rescaleInterval
+    || ExponentiallyDecayingSample.RESCALE_INTERVAL;
+  this._alpha           = options.alpha || ExponentiallyDecayingSample.ALPHA;
+  this._size            = options.size || ExponentiallyDecayingSample.SIZE;
+  this._random          = options.random || this._random;
+  this._landmark        = null;
+  this._nextRescale     = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyMovingWeightedAverage" id="apidoc.element.measured.ExponentiallyMovingWeightedAverage">
+        function <span class="apidocSignatureSpan">measured.</span>ExponentiallyMovingWeightedAverage
+        <span class="apidocSignatureSpan">(timePeriod, tickInterval)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ExponentiallyMovingWeightedAverage(timePeriod, tickInterval) {
+  this._timePeriod   = timePeriod || units.MINUTE;
+  this._tickInterval = tickInterval
+    || ExponentiallyMovingWeightedAverage.TICK_INTERVAL;
+  this._alpha        = 1 - Math.exp(-this._tickInterval / this._timePeriod);
+  this._count        = 0;
+  this._rate         = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Gauge" id="apidoc.element.measured.Gauge">
+        function <span class="apidocSignatureSpan">measured.</span>Gauge
+        <span class="apidocSignatureSpan">(readFn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Gauge(readFn) {
+  this._readFn = readFn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Gauge
+
+Values that can be read instantly. Example:
+
+```js
+var Measured = require('measured')
+var gauge = new Measured.<span class="apidocCodeKeywordSpan">Gauge</span>(function() {
+  return process.memoryUsage().rss;
+});
+```
+
+There is currently no callback support for Gauges because otherwise it would be
+very difficult to report the metrics inside a collection within a regular
+interval.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Histogram" id="apidoc.element.measured.Histogram">
+        function <span class="apidocSignatureSpan">measured.</span>Histogram
+        <span class="apidocSignatureSpan">(properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Histogram(properties) {
+  properties = properties || {};
+
+  this._sample    = properties.sample || new EDS();
+  this._min       = null;
+  this._max       = null;
+  this._count     = 0;
+  this._sum       = 0;
+
+  // These are for the Welford algorithm for calculating running variance
+  // without floating-point doom.
+  this._varianceM = 0;
+  this._varianceS = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### Histogram
+
+Keeps a resevoir of statistically relevant values biased towards the last 5
+minutes to explore their distribution. Example:
+
+```js
+var Measured = require('measured')
+var histogram = new Measured.<span class="apidocCodeKeywordSpan">Histogram</span>();
+http.createServer(function(req, res) {
+  if (req.headers['content-length']) {
+    histogram.update(parseInt(req.headers['content-length'], 10));
+  }
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Meter" id="apidoc.element.measured.Meter">
+        function <span class="apidocSignatureSpan">measured.</span>Meter
+        <span class="apidocSignatureSpan">(properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Meter(properties) {
+  properties = properties || {};
+
+  this._rateUnit     = properties.rateUnit || Meter.RATE_UNIT;
+  this._tickInterval = properties.tickInterval || Meter.TICK_INTERVAL;
+  if (properties.getTime) {
+    this._getTime = properties.getTime;
+  }
+
+  this._m1Rate     = new EWMA(units.MINUTES, this._tickInterval);
+  this._m5Rate     = new EWMA(5 * units.MINUTES, this._tickInterval);
+  this._m15Rate    = new EWMA(15 * units.MINUTES, this._tickInterval);
+  this._count      = 0;
+  this._currentSum = 0;
+  this._startTime = this._getTime();
+  this._lastToJSON = this._getTime();
+  this._interval = setInterval(this._tick.bind(this), Meter.TICK_INTERVAL);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Meter
+
+Things that are measured as events / interval. Example:
+
+```js
+var Measured = require('measured')
+var meter = new Measured.<span class="apidocCodeKeywordSpan">Meter</span>();
+http.createServer(function(req, res) {
+  meter.mark();
+});
+```
+
+**Options:**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Stopwatch" id="apidoc.element.measured.Stopwatch">
+        function <span class="apidocSignatureSpan">measured.</span>Stopwatch
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Stopwatch(options) {
+  options = options || {};
+  EventEmitter.call(this);
+
+  if (options.getTime) {
+    this._getTime = options.getTime;
+  }
+  this._start = this._getTime();
+  this._ended = false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Timer" id="apidoc.element.measured.Timer">
+        function <span class="apidocSignatureSpan">measured.</span>Timer
+        <span class="apidocSignatureSpan">(properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Timer(properties) {
+  properties = properties || {};
+
+  this._meter     = properties.meter || new Meter();
+  this._histogram = properties.histogram || new Histogram();
+  this._getTime   = properties.getTime;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Timers are a combination of Meters and Histograms. They measure the rate as
+well as distribution of scalar events. Since they are frequently used for
+tracking how long certain things take, they expose an API for that:
+
+```js
+var Measured = require('measured')
+var timer = new Measured.<span class="apidocCodeKeywordSpan">Timer</span>();
+http.createServer(function(req, res) {
+  var stopwatch = timer.start();
+  req.on('end', function() {
+    stopwatch.end();
+  });
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.createCollection" id="apidoc.element.measured.createCollection">
+        function <span class="apidocSignatureSpan">measured.</span>createCollection
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createCollection = function (name) {
+  return new Collection(name);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## Usage
+
+**Step 1:** Add measurements to your code. For example, lets track the
+requests/sec of a http server:
+
+```js
+var http  = require('http');
+var stats = require('measured').<span class="apidocCodeKeywordSpan">createCollection</span>();
+
+http.createServer(function(req, res) {
+  stats.meter('requestsPerSecond').mark();
+  res.end('Thanks');
+}).listen(3000);
+```
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.BinaryHeap" id="apidoc.module.measured.BinaryHeap">module measured.BinaryHeap</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap.BinaryHeap" id="apidoc.element.measured.BinaryHeap.BinaryHeap">
+        function <span class="apidocSignatureSpan">measured.</span>BinaryHeap
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BinaryHeap(options) {
+  options = options || {};
+
+  this._elements = options.elements || [];
+  this._score    = options.score || this._score;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.BinaryHeap.prototype" id="apidoc.module.measured.BinaryHeap.prototype">module measured.BinaryHeap.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap.prototype._bubble" id="apidoc.element.measured.BinaryHeap.prototype._bubble">
+        function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>_bubble
+        <span class="apidocSignatureSpan">(bubbleIndex)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_bubble = function (bubbleIndex) {
+  var bubbleElement = this._elements[bubbleIndex];
+  var bubbleScore   = this._score(bubbleElement);
+  var parentIndex;
+  var parentElement;
+  var parentScore;
+
+  while (bubbleIndex &gt; 0) {
+    parentIndex   = this._parentIndex(bubbleIndex);
+    parentElement = this._elements[parentIndex];
+    parentScore   = this._score(parentElement);
+
+    if (bubbleScore &lt;= parentScore) {
+      break;
+    }
+
+    this._elements[parentIndex] = bubbleElement;
+    this._elements[bubbleIndex] = parentElement;
+    bubbleIndex                 = parentIndex;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap.prototype._childIndexes" id="apidoc.element.measured.BinaryHeap.prototype._childIndexes">
+        function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>_childIndexes
+        <span class="apidocSignatureSpan">(index)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_childIndexes = function (index) {
+  return [
+    2 * index + 1,
+    2 * index + 2
+  ];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap.prototype._parentIndex" id="apidoc.element.measured.BinaryHeap.prototype._parentIndex">
+        function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>_parentIndex
+        <span class="apidocSignatureSpan">(index)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_parentIndex = function (index) {
+  return Math.floor((index - 1) / 2);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap.prototype._score" id="apidoc.element.measured.BinaryHeap.prototype._score">
+        function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>_score
+        <span class="apidocSignatureSpan">(element)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_score = function (element) {
+  return element.valueOf();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap.prototype._sink" id="apidoc.element.measured.BinaryHeap.prototype._sink">
+        function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>_sink
+        <span class="apidocSignatureSpan">(sinkIndex)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_sink = function (sinkIndex) {
+  var sinkElement = this._elements[sinkIndex];
+  var sinkScore   = this._score(sinkElement);
+  var length      = this._elements.length;
+  var swapIndex;
+  var swapScore;
+  var swapElement;
+  var childIndexes;
+  var i;
+  var childIndex;
+  var childElement;
+  var childScore;
+
+  while (true) {
+    swapIndex    = null;
+    swapScore    = null;
+    swapElement  = null;
+    childIndexes = this._childIndexes(sinkIndex);
+
+    for (i = 0; i &lt; childIndexes.length; i++) {
+      childIndex = childIndexes[i];
+
+      if (childIndex &gt;= length) {
+        break;
+      }
+
+      childElement = this._elements[childIndex];
+      childScore   = this._score(childElement);
+
+      if (childScore &gt; sinkScore) {
+        if (swapScore === null || swapScore &lt; childScore) {
+          swapIndex   = childIndex;
+          swapScore   = childScore;
+          swapElement = childElement;
+        }
+      }
+    }
+
+    if (swapIndex === null) {
+      break;
+    }
+
+    this._elements[swapIndex] = sinkElement;
+    this._elements[sinkIndex] = swapElement;
+    sinkIndex = swapIndex;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap.prototype.add" id="apidoc.element.measured.BinaryHeap.prototype.add">
+        function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>add
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function () {
+  var i, element;
+  for (i = 0; i &lt; arguments.length; i++) {
+    element = arguments[i];
+
+    this._elements.push(element);
+    this._bubble(this._elements.length - 1);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap.prototype.clone" id="apidoc.element.measured.BinaryHeap.prototype.clone">
+        function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>clone
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clone = function () {
+  return new BinaryHeap({
+    elements: this.toArray(),
+    score: this._score
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap.prototype.first" id="apidoc.element.measured.BinaryHeap.prototype.first">
+        function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>first
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">first = function () {
+  return this._elements[0];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap.prototype.removeFirst" id="apidoc.element.measured.BinaryHeap.prototype.removeFirst">
+        function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>removeFirst
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removeFirst = function () {
+  var root = this._elements[0];
+  var last = this._elements.pop();
+
+  if (this._elements.length &gt; 0) {
+    this._elements[0] = last;
+    this._sink(0);
+  }
+
+  return root;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap.prototype.size" id="apidoc.element.measured.BinaryHeap.prototype.size">
+        function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>size
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">size = function () {
+  return this._elements.length;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap.prototype.toArray" id="apidoc.element.measured.BinaryHeap.prototype.toArray">
+        function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>toArray
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toArray = function () {
+  return [].concat(this._elements);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.BinaryHeap.prototype.toSortedArray" id="apidoc.element.measured.BinaryHeap.prototype.toSortedArray">
+        function <span class="apidocSignatureSpan">measured.BinaryHeap.prototype.</span>toSortedArray
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toSortedArray = function () {
+  var array = [];
+  var clone = this.clone();
+  var element;
+
+  while (true) {
+    element = clone.removeFirst();
+    if (element === undefined) {
+      break;
+    }
+
+    array.push(element);
+  }
+
+  return array;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Collection" id="apidoc.module.measured.Collection">module measured.Collection</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Collection.Collection" id="apidoc.element.measured.Collection.Collection">
+        function <span class="apidocSignatureSpan">measured.</span>Collection
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Collection(name) {
+  this.name     = name;
+  this._metrics = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Collection.prototype" id="apidoc.module.measured.Collection.prototype">module measured.Collection.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Collection.prototype.counter" id="apidoc.element.measured.Collection.prototype.counter">
+        function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>counter
+        <span class="apidocSignatureSpan">(name, properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">counter = function (name, properties) {
+  if (!name) {
+    throw new Error('Collection.NoMetricName');
+  }
+
+  if (this._metrics[name]) {
+    return this._metrics[name];
+  }
+
+  var metric = new MetricConstructor(properties);
+  this.register(name, metric);
+  return metric;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Collection.prototype.end" id="apidoc.element.measured.Collection.prototype.end">
+        function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>end
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function end() {
+  var metrics = this._metrics;
+  Object.keys(metrics).forEach(function (name) {
+    var metric = metrics[name];
+    if (metric.end) {
+      metric.end();
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+var http  = require('http');
+var stats = require('measured').createCollection();
+
+http.createServer(function(req, res) {
+  stats.meter('requestsPerSecond').mark();
+  res.<span class="apidocCodeKeywordSpan">end</span>('Thanks');
+}).listen(3000);
+```
+
+**Step 2:** Show the collected measurements (more advanced examples follow later):
+
+```js
+setInterval(function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Collection.prototype.gauge" id="apidoc.element.measured.Collection.prototype.gauge">
+        function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>gauge
+        <span class="apidocSignatureSpan">(name, properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gauge = function (name, properties) {
+  if (!name) {
+    throw new Error('Collection.NoMetricName');
+  }
+
+  if (this._metrics[name]) {
+    return this._metrics[name];
+  }
+
+  var metric = new MetricConstructor(properties);
+  this.register(name, metric);
+  return metric;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Collection.prototype.histogram" id="apidoc.element.measured.Collection.prototype.histogram">
+        function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>histogram
+        <span class="apidocSignatureSpan">(name, properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">histogram = function (name, properties) {
+  if (!name) {
+    throw new Error('Collection.NoMetricName');
+  }
+
+  if (this._metrics[name]) {
+    return this._metrics[name];
+  }
+
+  var metric = new MetricConstructor(properties);
+  this.register(name, metric);
+  return metric;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Collection.prototype.meter" id="apidoc.element.measured.Collection.prototype.meter">
+        function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>meter
+        <span class="apidocSignatureSpan">(name, properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">meter = function (name, properties) {
+  if (!name) {
+    throw new Error('Collection.NoMetricName');
+  }
+
+  if (this._metrics[name]) {
+    return this._metrics[name];
+  }
+
+  var metric = new MetricConstructor(properties);
+  this.register(name, metric);
+  return metric;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+requests/sec of a http server:
+
+```js
+var http  = require('http');
+var stats = require('measured').createCollection();
+
+http.createServer(function(req, res) {
+  stats.<span class="apidocCodeKeywordSpan">meter</span>('requestsPerSecond').mark();
+  res.end('Thanks');
+}).listen(3000);
+```
+
+**Step 2:** Show the collected measurements (more advanced examples follow later):
+
+```js
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Collection.prototype.register" id="apidoc.element.measured.Collection.prototype.register">
+        function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>register
+        <span class="apidocSignatureSpan">(name, metric)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">register = function (name, metric) {
+  this._metrics[name] = metric;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Collection.prototype.timer" id="apidoc.element.measured.Collection.prototype.timer">
+        function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>timer
+        <span class="apidocSignatureSpan">(name, properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">timer = function (name, properties) {
+  if (!name) {
+    throw new Error('Collection.NoMetricName');
+  }
+
+  if (this._metrics[name]) {
+    return this._metrics[name];
+  }
+
+  var metric = new MetricConstructor(properties);
+  this.register(name, metric);
+  return metric;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Collection.prototype.toJSON" id="apidoc.element.measured.Collection.prototype.toJSON">
+        function <span class="apidocSignatureSpan">measured.Collection.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function () {
+  var json = {};
+
+  var metric;
+  for (metric in this._metrics) {
+    if (this._metrics.hasOwnProperty(metric)) {
+      json[metric] = this._metrics[metric].toJSON();
+    }
+  }
+
+  if (!this.name) {
+    return json;
+  }
+
+  var wrapper = {};
+  wrapper[this.name] = json;
+
+  return wrapper;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}).listen(3000);
+```
+
+**Step 2:** Show the collected measurements (more advanced examples follow later):
+
+```js
+setInterval(function() {
+  console.log(stats.<span class="apidocCodeKeywordSpan">toJSON</span>());
+}, 1000);
+```
+
+This will output something like this every second:
+
+```
+{ requestsPerSecond:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Counter" id="apidoc.module.measured.Counter">module measured.Counter</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Counter.Counter" id="apidoc.element.measured.Counter.Counter">
+        function <span class="apidocSignatureSpan">measured.</span>Counter
+        <span class="apidocSignatureSpan">(properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Counter(properties) {
+  properties = properties || {};
+
+  this._count = properties.count || 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Counter
+
+Things that increment or decrement. Example:
+
+```js
+var Measured = require('measured')
+var activeUploads = new Measured.<span class="apidocCodeKeywordSpan">Counter</span>();
+http.createServer(function(req, res) {
+  activeUploads.inc();
+  req.on('end', function() {
+    activeUploads.dec();
+  });
+});
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Counter.prototype" id="apidoc.module.measured.Counter.prototype">module measured.Counter.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Counter.prototype.dec" id="apidoc.element.measured.Counter.prototype.dec">
+        function <span class="apidocSignatureSpan">measured.Counter.prototype.</span>dec
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dec = function (n) {
+  this._count -= (arguments.length ? n : 1);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+var Measured = require('measured')
+var activeUploads = new Measured.Counter();
+http.createServer(function(req, res) {
+  activeUploads.inc();
+  req.on('end', function() {
+    activeUploads.<span class="apidocCodeKeywordSpan">dec</span>();
+  });
+});
+```
+
+**Options:**
+
+* `count` An initial count for the counter. Defaults to `0`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Counter.prototype.inc" id="apidoc.element.measured.Counter.prototype.inc">
+        function <span class="apidocSignatureSpan">measured.Counter.prototype.</span>inc
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">inc = function (n) {
+  this._count += (arguments.length ? n : 1);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Things that increment or decrement. Example:
+
+```js
+var Measured = require('measured')
+var activeUploads = new Measured.Counter();
+http.createServer(function(req, res) {
+  activeUploads.<span class="apidocCodeKeywordSpan">inc</span>();
+  req.on('end', function() {
+    activeUploads.dec();
+  });
+});
+```
+
+**Options:**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Counter.prototype.reset" id="apidoc.element.measured.Counter.prototype.reset">
+        function <span class="apidocSignatureSpan">measured.Counter.prototype.</span>reset
+        <span class="apidocSignatureSpan">(count)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function (count) {
+  this._count = count || 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Counter.prototype.toJSON" id="apidoc.element.measured.Counter.prototype.toJSON">
+        function <span class="apidocSignatureSpan">measured.Counter.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function () {
+  return this._count;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}).listen(3000);
+```
+
+**Step 2:** Show the collected measurements (more advanced examples follow later):
+
+```js
+setInterval(function() {
+  console.log(stats.<span class="apidocCodeKeywordSpan">toJSON</span>());
+}, 1000);
+```
+
+This will output something like this every second:
+
+```
+{ requestsPerSecond:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.ExponentiallyDecayingSample" id="apidoc.module.measured.ExponentiallyDecayingSample">module measured.ExponentiallyDecayingSample</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyDecayingSample.ExponentiallyDecayingSample" id="apidoc.element.measured.ExponentiallyDecayingSample.ExponentiallyDecayingSample">
+        function <span class="apidocSignatureSpan">measured.</span>ExponentiallyDecayingSample
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ExponentiallyDecayingSample(options) {
+  options = options || {};
+
+  this._elements = new BinaryHeap({
+    score: function (element) {
+      return -element.priority;
+    }
+  });
+
+  this._rescaleInterval = options.rescaleInterval
+    || ExponentiallyDecayingSample.RESCALE_INTERVAL;
+  this._alpha           = options.alpha || ExponentiallyDecayingSample.ALPHA;
+  this._size            = options.size || ExponentiallyDecayingSample.SIZE;
+  this._random          = options.random || this._random;
+  this._landmark        = null;
+  this._nextRescale     = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.ExponentiallyDecayingSample.prototype" id="apidoc.module.measured.ExponentiallyDecayingSample.prototype">module measured.ExponentiallyDecayingSample.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype._priority" id="apidoc.element.measured.ExponentiallyDecayingSample.prototype._priority">
+        function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>_priority
+        <span class="apidocSignatureSpan">(age)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_priority = function (age) {
+  return this._weight(age) / this._random();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype._random" id="apidoc.element.measured.ExponentiallyDecayingSample.prototype._random">
+        function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>_random
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_random = function () {
+  return Math.random();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype._rescale" id="apidoc.element.measured.ExponentiallyDecayingSample.prototype._rescale">
+        function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>_rescale
+        <span class="apidocSignatureSpan">(now)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_rescale = function (now) {
+  now               = now || Date.now();
+
+  var self          = this;
+  var oldLandmark   = this._landmark;
+  this._landmark    = now || Date.now();
+  this._nextRescale = now + this._rescaleInterval;
+
+  var factor = self._priority(-(self._landmark - oldLandmark));
+
+  this._elements
+    .toArray()
+    .forEach(function (element) {
+      element.priority *= factor;
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype._weight" id="apidoc.element.measured.ExponentiallyDecayingSample.prototype._weight">
+        function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>_weight
+        <span class="apidocSignatureSpan">(age)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_weight = function (age) {
+  // We divide by 1000 to not run into huge numbers before reaching a
+  // rescale event.
+  return Math.exp(this._alpha * (age / 1000));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype.toArray" id="apidoc.element.measured.ExponentiallyDecayingSample.prototype.toArray">
+        function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>toArray
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toArray = function () {
+  return this._elements
+    .toArray()
+    .map(function (element) {
+      return element.value;
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype.toSortedArray" id="apidoc.element.measured.ExponentiallyDecayingSample.prototype.toSortedArray">
+        function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>toSortedArray
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toSortedArray = function () {
+  return this._elements
+    .toSortedArray()
+    .map(function (element) {
+      return element.value;
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyDecayingSample.prototype.update" id="apidoc.element.measured.ExponentiallyDecayingSample.prototype.update">
+        function <span class="apidocSignatureSpan">measured.ExponentiallyDecayingSample.prototype.</span>update
+        <span class="apidocSignatureSpan">(value, timestamp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (value, timestamp) {
+  var now = Date.now();
+  if (!this._landmark) {
+    this._landmark    = now;
+    this._nextRescale = this._landmark + this._rescaleInterval;
+  }
+
+  timestamp = timestamp || now;
+
+  var newSize = this._elements.size() + 1;
+
+  var element = {
+    priority: this._priority(timestamp - this._landmark),
+    value: value
+  };
+
+  if (newSize &lt;= this._size) {
+    this._elements.add(element);
+  } else if (element.priority &gt; this._elements.first().priority) {
+    this._elements.removeFirst();
+    this._elements.add(element);
+  }
+
+  if (now &gt;= this._nextRescale) {
+    this._rescale(now);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+minutes to explore their distribution. Example:
+
+```js
+var Measured = require('measured')
+var histogram = new Measured.Histogram();
+http.createServer(function(req, res) {
+  if (req.headers['content-length']) {
+    histogram.<span class="apidocCodeKeywordSpan">update</span>(parseInt(req.headers['content-length'], 10));
+  }
+});
+```
+
+**Options:**
+
+* `sample` The sample resevoir to use. Defaults to an `ExponentiallyDecayingSample`.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.ExponentiallyMovingWeightedAverage" id="apidoc.module.measured.ExponentiallyMovingWeightedAverage">module measured.ExponentiallyMovingWeightedAverage</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyMovingWeightedAverage.ExponentiallyMovingWeightedAverage" id="apidoc.element.measured.ExponentiallyMovingWeightedAverage.ExponentiallyMovingWeightedAverage">
+        function <span class="apidocSignatureSpan">measured.</span>ExponentiallyMovingWeightedAverage
+        <span class="apidocSignatureSpan">(timePeriod, tickInterval)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ExponentiallyMovingWeightedAverage(timePeriod, tickInterval) {
+  this._timePeriod   = timePeriod || units.MINUTE;
+  this._tickInterval = tickInterval
+    || ExponentiallyMovingWeightedAverage.TICK_INTERVAL;
+  this._alpha        = 1 - Math.exp(-this._tickInterval / this._timePeriod);
+  this._count        = 0;
+  this._rate         = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.ExponentiallyMovingWeightedAverage.prototype" id="apidoc.module.measured.ExponentiallyMovingWeightedAverage.prototype">module measured.ExponentiallyMovingWeightedAverage.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyMovingWeightedAverage.prototype.rate" id="apidoc.element.measured.ExponentiallyMovingWeightedAverage.prototype.rate">
+        function <span class="apidocSignatureSpan">measured.ExponentiallyMovingWeightedAverage.prototype.</span>rate
+        <span class="apidocSignatureSpan">(timeUnit)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rate = function (timeUnit) {
+  return (this._rate || 0) * timeUnit;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyMovingWeightedAverage.prototype.tick" id="apidoc.element.measured.ExponentiallyMovingWeightedAverage.prototype.tick">
+        function <span class="apidocSignatureSpan">measured.ExponentiallyMovingWeightedAverage.prototype.</span>tick
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tick = function () {
+  var instantRate = this._count / this._tickInterval;
+  this._count     = 0;
+
+  this._rate += (this._alpha * (instantRate - this._rate));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.ExponentiallyMovingWeightedAverage.prototype.update" id="apidoc.element.measured.ExponentiallyMovingWeightedAverage.prototype.update">
+        function <span class="apidocSignatureSpan">measured.ExponentiallyMovingWeightedAverage.prototype.</span>update
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (n) {
+  this._count += n;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+minutes to explore their distribution. Example:
+
+```js
+var Measured = require('measured')
+var histogram = new Measured.Histogram();
+http.createServer(function(req, res) {
+  if (req.headers['content-length']) {
+    histogram.<span class="apidocCodeKeywordSpan">update</span>(parseInt(req.headers['content-length'], 10));
+  }
+});
+```
+
+**Options:**
+
+* `sample` The sample resevoir to use. Defaults to an `ExponentiallyDecayingSample`.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Gauge" id="apidoc.module.measured.Gauge">module measured.Gauge</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Gauge.Gauge" id="apidoc.element.measured.Gauge.Gauge">
+        function <span class="apidocSignatureSpan">measured.</span>Gauge
+        <span class="apidocSignatureSpan">(readFn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Gauge(readFn) {
+  this._readFn = readFn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Gauge
+
+Values that can be read instantly. Example:
+
+```js
+var Measured = require('measured')
+var gauge = new Measured.<span class="apidocCodeKeywordSpan">Gauge</span>(function() {
+  return process.memoryUsage().rss;
+});
+```
+
+There is currently no callback support for Gauges because otherwise it would be
+very difficult to report the metrics inside a collection within a regular
+interval.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Gauge.prototype" id="apidoc.module.measured.Gauge.prototype">module measured.Gauge.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Gauge.prototype.toJSON" id="apidoc.element.measured.Gauge.prototype.toJSON">
+        function <span class="apidocSignatureSpan">measured.Gauge.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function () {
+  return this._readFn();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}).listen(3000);
+```
+
+**Step 2:** Show the collected measurements (more advanced examples follow later):
+
+```js
+setInterval(function() {
+  console.log(stats.<span class="apidocCodeKeywordSpan">toJSON</span>());
+}, 1000);
+```
+
+This will output something like this every second:
+
+```
+{ requestsPerSecond:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Histogram" id="apidoc.module.measured.Histogram">module measured.Histogram</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Histogram.Histogram" id="apidoc.element.measured.Histogram.Histogram">
+        function <span class="apidocSignatureSpan">measured.</span>Histogram
+        <span class="apidocSignatureSpan">(properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Histogram(properties) {
+  properties = properties || {};
+
+  this._sample    = properties.sample || new EDS();
+  this._min       = null;
+  this._max       = null;
+  this._count     = 0;
+  this._sum       = 0;
+
+  // These are for the Welford algorithm for calculating running variance
+  // without floating-point doom.
+  this._varianceM = 0;
+  this._varianceS = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### Histogram
+
+Keeps a resevoir of statistically relevant values biased towards the last 5
+minutes to explore their distribution. Example:
+
+```js
+var Measured = require('measured')
+var histogram = new Measured.<span class="apidocCodeKeywordSpan">Histogram</span>();
+http.createServer(function(req, res) {
+  if (req.headers['content-length']) {
+    histogram.update(parseInt(req.headers['content-length'], 10));
+  }
+});
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Histogram.prototype" id="apidoc.module.measured.Histogram.prototype">module measured.Histogram.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Histogram.prototype._calculateMean" id="apidoc.element.measured.Histogram.prototype._calculateMean">
+        function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>_calculateMean
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_calculateMean = function () {
+  return (this._count === 0)
+    ? 0
+    : this._sum / this._count;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Histogram.prototype._calculateStddev" id="apidoc.element.measured.Histogram.prototype._calculateStddev">
+        function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>_calculateStddev
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_calculateStddev = function () {
+  return (this._count &lt; 1)
+    ? null
+    : Math.sqrt(this._calculateVariance());
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Histogram.prototype._calculateVariance" id="apidoc.element.measured.Histogram.prototype._calculateVariance">
+        function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>_calculateVariance
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_calculateVariance = function () {
+  return (this._count &lt;= 1)
+    ? null
+    : this._varianceS / (this._count - 1);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Histogram.prototype._updateMax" id="apidoc.element.measured.Histogram.prototype._updateMax">
+        function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>_updateMax
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_updateMax = function (value) {
+  if (this._max === null || value &gt; this._max) {
+    this._max = value;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Histogram.prototype._updateMin" id="apidoc.element.measured.Histogram.prototype._updateMin">
+        function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>_updateMin
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_updateMin = function (value) {
+  if (this._min === null || value &lt; this._min) {
+    this._min = value;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Histogram.prototype._updateVariance" id="apidoc.element.measured.Histogram.prototype._updateVariance">
+        function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>_updateVariance
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_updateVariance = function (value) {
+  if (this._count === 1) {
+    this._varianceM = value;
+    return value;
+  }
+
+  var oldM = this._varianceM;
+
+  this._varianceM += ((value - oldM) / this._count);
+  this._varianceS += ((value - oldM) * (value - this._varianceM));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Histogram.prototype.hasValues" id="apidoc.element.measured.Histogram.prototype.hasValues">
+        function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>hasValues
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hasValues = function () {
+  return this._count &gt; 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Histogram.prototype.percentiles" id="apidoc.element.measured.Histogram.prototype.percentiles">
+        function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>percentiles
+        <span class="apidocSignatureSpan">(percentiles)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">percentiles = function (percentiles) {
+  var values = this._sample
+    .toArray()
+    .sort(function (a, b) {
+      return (a === b)
+        ? 0
+        : a - b;
+    });
+
+  var results = {};
+
+  var i, percentile, pos, lower, upper;
+  for (i = 0; i &lt; percentiles.length; i++) {
+    percentile = percentiles[i];
+    if (values.length) {
+      pos = percentile * (values.length + 1);
+      if (pos &lt; 1) {
+        results[percentile] = values[0];
+      } else if (pos &gt;= values.length) {
+        results[percentile] = values[values.length - 1];
+      } else {
+        lower = values[Math.floor(pos) - 1];
+        upper = values[Math.ceil(pos) - 1];
+        results[percentile] =
+          lower + (pos - Math.floor(pos)) * (upper - lower);
+      }
+    } else {
+      results[percentile] = null;
+    }
+  }
+
+  return results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Histogram.prototype.reset" id="apidoc.element.measured.Histogram.prototype.reset">
+        function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>reset
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function () {
+  this.constructor();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Histogram.prototype.toJSON" id="apidoc.element.measured.Histogram.prototype.toJSON">
+        function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function () {
+  var percentiles = this.percentiles([0.5, 0.75, 0.95, 0.99, 0.999]);
+
+  return {
+    min      : this._min,
+    max      : this._max,
+    sum      : this._sum,
+    variance : this._calculateVariance(),
+    mean     : this._calculateMean(),
+    stddev   : this._calculateStddev(),
+    count    : this._count,
+    median   : percentiles[0.5],
+    p75      : percentiles[0.75],
+    p95      : percentiles[0.95],
+    p99      : percentiles[0.99],
+    p999     : percentiles[0.999]
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}).listen(3000);
+```
+
+**Step 2:** Show the collected measurements (more advanced examples follow later):
+
+```js
+setInterval(function() {
+  console.log(stats.<span class="apidocCodeKeywordSpan">toJSON</span>());
+}, 1000);
+```
+
+This will output something like this every second:
+
+```
+{ requestsPerSecond:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Histogram.prototype.update" id="apidoc.element.measured.Histogram.prototype.update">
+        function <span class="apidocSignatureSpan">measured.Histogram.prototype.</span>update
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (value) {
+  this._count++;
+  this._sum += value;
+
+  this._sample.update(value);
+  this._updateMin(value);
+  this._updateMax(value);
+  this._updateVariance(value);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+minutes to explore their distribution. Example:
+
+```js
+var Measured = require('measured')
+var histogram = new Measured.Histogram();
+http.createServer(function(req, res) {
+  if (req.headers['content-length']) {
+    histogram.<span class="apidocCodeKeywordSpan">update</span>(parseInt(req.headers['content-length'], 10));
+  }
+});
+```
+
+**Options:**
+
+* `sample` The sample resevoir to use. Defaults to an `ExponentiallyDecayingSample`.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Meter" id="apidoc.module.measured.Meter">module measured.Meter</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Meter.Meter" id="apidoc.element.measured.Meter.Meter">
+        function <span class="apidocSignatureSpan">measured.</span>Meter
+        <span class="apidocSignatureSpan">(properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Meter(properties) {
+  properties = properties || {};
+
+  this._rateUnit     = properties.rateUnit || Meter.RATE_UNIT;
+  this._tickInterval = properties.tickInterval || Meter.TICK_INTERVAL;
+  if (properties.getTime) {
+    this._getTime = properties.getTime;
+  }
+
+  this._m1Rate     = new EWMA(units.MINUTES, this._tickInterval);
+  this._m5Rate     = new EWMA(5 * units.MINUTES, this._tickInterval);
+  this._m15Rate    = new EWMA(15 * units.MINUTES, this._tickInterval);
+  this._count      = 0;
+  this._currentSum = 0;
+  this._startTime = this._getTime();
+  this._lastToJSON = this._getTime();
+  this._interval = setInterval(this._tick.bind(this), Meter.TICK_INTERVAL);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Meter
+
+Things that are measured as events / interval. Example:
+
+```js
+var Measured = require('measured')
+var meter = new Measured.<span class="apidocCodeKeywordSpan">Meter</span>();
+http.createServer(function(req, res) {
+  meter.mark();
+});
+```
+
+**Options:**
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Meter.prototype" id="apidoc.module.measured.Meter.prototype">module measured.Meter.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Meter.prototype._getTime" id="apidoc.element.measured.Meter.prototype._getTime">
+        function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>_getTime
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getTime = function () {
+  if (!process.hrtime) {
+    return new Date().getTime();
+  }
+
+  var hrtime = process.hrtime();
+  return hrtime[0] * 1000 + hrtime[1] / (1000 * 1000);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Meter.prototype._tick" id="apidoc.element.measured.Meter.prototype._tick">
+        function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>_tick
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_tick = function () {
+  this._m1Rate.tick();
+  this._m5Rate.tick();
+  this._m15Rate.tick();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Meter.prototype.currentRate" id="apidoc.element.measured.Meter.prototype.currentRate">
+        function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>currentRate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">currentRate = function () {
+  var currentSum  = this._currentSum;
+  var duration    = this._getTime() - this._lastToJSON;
+  var currentRate = currentSum / duration * this._rateUnit;
+
+  this._currentSum = 0;
+  this._lastToJSON = this._getTime();
+
+  // currentRate could be NaN if duration was 0, so fix that
+  return currentRate || 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Meter.prototype.end" id="apidoc.element.measured.Meter.prototype.end">
+        function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>end
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function () {
+  clearInterval(this._interval);
+  this._interval = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+var http  = require('http');
+var stats = require('measured').createCollection();
+
+http.createServer(function(req, res) {
+  stats.meter('requestsPerSecond').mark();
+  res.<span class="apidocCodeKeywordSpan">end</span>('Thanks');
+}).listen(3000);
+```
+
+**Step 2:** Show the collected measurements (more advanced examples follow later):
+
+```js
+setInterval(function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Meter.prototype.mark" id="apidoc.element.measured.Meter.prototype.mark">
+        function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>mark
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mark = function (n) {
+  if (!this._interval) {
+    this.start();
+  }
+
+  n = n || 1;
+
+  this._count += n;
+  this._currentSum += n;
+  this._m1Rate.update(n);
+  this._m5Rate.update(n);
+  this._m15Rate.update(n);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+requests/sec of a http server:
+
+```js
+var http  = require('http');
+var stats = require('measured').createCollection();
+
+http.createServer(function(req, res) {
+  stats.meter('requestsPerSecond').<span class="apidocCodeKeywordSpan">mark</span>();
+  res.end('Thanks');
+}).listen(3000);
+```
+
+**Step 2:** Show the collected measurements (more advanced examples follow later):
+
+```js
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Meter.prototype.meanRate" id="apidoc.element.measured.Meter.prototype.meanRate">
+        function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>meanRate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">meanRate = function () {
+  if (this._count === 0) {
+    return 0;
+  }
+
+  var elapsed = this._getTime() - this._startTime;
+  return this._count / elapsed * this._rateUnit;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Meter.prototype.ref" id="apidoc.element.measured.Meter.prototype.ref">
+        function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>ref
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ref = function () {
+  if (this._interval &amp;&amp; this._interval.ref) {
+    this._interval.ref();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Meter.prototype.reset" id="apidoc.element.measured.Meter.prototype.reset">
+        function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>reset
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function () {
+  this.end();
+  this.constructor();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Meter.prototype.start" id="apidoc.element.measured.Meter.prototype.start">
+        function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>start
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function () {
+  return;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+well as distribution of scalar events. Since they are frequently used for
+tracking how long certain things take, they expose an API for that:
+
+```js
+var Measured = require('measured')
+var timer = new Measured.Timer();
+http.createServer(function(req, res) {
+  var stopwatch = timer.<span class="apidocCodeKeywordSpan">start</span>();
+  req.on('end', function() {
+    stopwatch.end();
+  });
+});
+```
+
+But you can also use them as generic histograms that also track the rate of
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Meter.prototype.toJSON" id="apidoc.element.measured.Meter.prototype.toJSON">
+        function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function () {
+  return {
+    'mean'         : this.meanRate(),
+    'count'        : this._count,
+    'currentRate'  : this.currentRate(),
+    '1MinuteRate'  : this._m1Rate.rate(this._rateUnit),
+    '5MinuteRate'  : this._m5Rate.rate(this._rateUnit),
+    '15MinuteRate' : this._m15Rate.rate(this._rateUnit)
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}).listen(3000);
+```
+
+**Step 2:** Show the collected measurements (more advanced examples follow later):
+
+```js
+setInterval(function() {
+  console.log(stats.<span class="apidocCodeKeywordSpan">toJSON</span>());
+}, 1000);
+```
+
+This will output something like this every second:
+
+```
+{ requestsPerSecond:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Meter.prototype.unref" id="apidoc.element.measured.Meter.prototype.unref">
+        function <span class="apidocSignatureSpan">measured.Meter.prototype.</span>unref
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unref = function () {
+  if (this._interval &amp;&amp; this._interval.unref) {
+    this._interval.unref();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Stopwatch" id="apidoc.module.measured.Stopwatch">module measured.Stopwatch</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Stopwatch.Stopwatch" id="apidoc.element.measured.Stopwatch.Stopwatch">
+        function <span class="apidocSignatureSpan">measured.</span>Stopwatch
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Stopwatch(options) {
+  options = options || {};
+  EventEmitter.call(this);
+
+  if (options.getTime) {
+    this._getTime = options.getTime;
+  }
+  this._start = this._getTime();
+  this._ended = false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Stopwatch.super_" id="apidoc.element.measured.Stopwatch.super_">
+        function <span class="apidocSignatureSpan">measured.Stopwatch.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Stopwatch.prototype" id="apidoc.module.measured.Stopwatch.prototype">module measured.Stopwatch.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Stopwatch.prototype._getTime" id="apidoc.element.measured.Stopwatch.prototype._getTime">
+        function <span class="apidocSignatureSpan">measured.Stopwatch.prototype.</span>_getTime
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getTime = function () {
+  if (!process.hrtime) {
+    return Date.now();
+  }
+
+  var hrtime = process.hrtime();
+  return hrtime[0] * 1000 + hrtime[1] / (1000 * 1000);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Stopwatch.prototype.end" id="apidoc.element.measured.Stopwatch.prototype.end">
+        function <span class="apidocSignatureSpan">measured.Stopwatch.prototype.</span>end
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function () {
+  if (this._ended) {
+    return;
+  }
+
+  this._ended = true;
+  var elapsed   = this._getTime() - this._start;
+
+  this.emit('end', elapsed);
+  return elapsed;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+var http  = require('http');
+var stats = require('measured').createCollection();
+
+http.createServer(function(req, res) {
+  stats.meter('requestsPerSecond').mark();
+  res.<span class="apidocCodeKeywordSpan">end</span>('Thanks');
+}).listen(3000);
+```
+
+**Step 2:** Show the collected measurements (more advanced examples follow later):
+
+```js
+setInterval(function() {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Timer" id="apidoc.module.measured.Timer">module measured.Timer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Timer.Timer" id="apidoc.element.measured.Timer.Timer">
+        function <span class="apidocSignatureSpan">measured.</span>Timer
+        <span class="apidocSignatureSpan">(properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Timer(properties) {
+  properties = properties || {};
+
+  this._meter     = properties.meter || new Meter();
+  this._histogram = properties.histogram || new Histogram();
+  this._getTime   = properties.getTime;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Timers are a combination of Meters and Histograms. They measure the rate as
+well as distribution of scalar events. Since they are frequently used for
+tracking how long certain things take, they expose an API for that:
+
+```js
+var Measured = require('measured')
+var timer = new Measured.<span class="apidocCodeKeywordSpan">Timer</span>();
+http.createServer(function(req, res) {
+  var stopwatch = timer.start();
+  req.on('end', function() {
+    stopwatch.end();
+  });
+});
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.measured.Timer.prototype" id="apidoc.module.measured.Timer.prototype">module measured.Timer.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Timer.prototype.end" id="apidoc.element.measured.Timer.prototype.end">
+        function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>end
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function () {
+  this._meter.end();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+var http  = require('http');
+var stats = require('measured').createCollection();
+
+http.createServer(function(req, res) {
+  stats.meter('requestsPerSecond').mark();
+  res.<span class="apidocCodeKeywordSpan">end</span>('Thanks');
+}).listen(3000);
+```
+
+**Step 2:** Show the collected measurements (more advanced examples follow later):
+
+```js
+setInterval(function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Timer.prototype.ref" id="apidoc.element.measured.Timer.prototype.ref">
+        function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>ref
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ref = function () {
+  this._meter.ref();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Timer.prototype.reset" id="apidoc.element.measured.Timer.prototype.reset">
+        function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>reset
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function () {
+  this._meter.reset();
+  this._histogram.reset();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Timer.prototype.start" id="apidoc.element.measured.Timer.prototype.start">
+        function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>start
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function () {
+  var self  = this;
+  var watch = new Stopwatch({getTime: this._getTime});
+
+  watch.once('end', function (elapsed) {
+    self.update(elapsed);
+  });
+
+  return watch;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+well as distribution of scalar events. Since they are frequently used for
+tracking how long certain things take, they expose an API for that:
+
+```js
+var Measured = require('measured')
+var timer = new Measured.Timer();
+http.createServer(function(req, res) {
+  var stopwatch = timer.<span class="apidocCodeKeywordSpan">start</span>();
+  req.on('end', function() {
+    stopwatch.end();
+  });
+});
+```
+
+But you can also use them as generic histograms that also track the rate of
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Timer.prototype.toJSON" id="apidoc.element.measured.Timer.prototype.toJSON">
+        function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function () {
+  return {
+    meter : this._meter.toJSON(),
+    histogram : this._histogram.toJSON()
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}).listen(3000);
+```
+
+**Step 2:** Show the collected measurements (more advanced examples follow later):
+
+```js
+setInterval(function() {
+  console.log(stats.<span class="apidocCodeKeywordSpan">toJSON</span>());
+}, 1000);
+```
+
+This will output something like this every second:
+
+```
+{ requestsPerSecond:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Timer.prototype.unref" id="apidoc.element.measured.Timer.prototype.unref">
+        function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>unref
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unref = function () {
+  this._meter.unref();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.measured.Timer.prototype.update" id="apidoc.element.measured.Timer.prototype.update">
+        function <span class="apidocSignatureSpan">measured.Timer.prototype.</span>update
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (value) {
+  this._meter.mark();
+  this._histogram.update(value);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+minutes to explore their distribution. Example:
+
+```js
+var Measured = require('measured')
+var histogram = new Measured.Histogram();
+http.createServer(function(req, res) {
+  if (req.headers['content-length']) {
+    histogram.<span class="apidocCodeKeywordSpan">update</span>(parseInt(req.headers['content-length'], 10));
+  }
+});
+```
+
+**Options:**
+
+* `sample` The sample resevoir to use. Defaults to an `ExponentiallyDecayingSample`.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
