@@ -1,6 +1,6 @@
 # npmdoc-measured
 
-#### api documentation for  [measured (v1.1.0)](https://github.com/felixge/node-measured)  [![npm package](https://img.shields.io/npm/v/npmdoc-measured.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-measured) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-measured.svg)](https://travis-ci.org/npmdoc/node-npmdoc-measured)
+#### basic api documentation for  [measured (v1.1.0)](https://github.com/felixge/node-measured)  [![npm package](https://img.shields.io/npm/v/npmdoc-measured.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-measured) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-measured.svg)](https://travis-ci.org/npmdoc/node-npmdoc-measured)
 
 #### This is an alternative port of Coda Hale's metrics library.
 
@@ -78,7 +78,8 @@
         "watch": "npm run test:node -- --watch",
         "wd": "mochify --wd './test/**/test-*.js'"
     },
-    "version": "1.1.0"
+    "version": "1.1.0",
+    "bin": {}
 }
 ```
 
